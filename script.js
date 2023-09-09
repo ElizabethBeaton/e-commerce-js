@@ -9,7 +9,6 @@ const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 const btns = document.querySelectorAll(".bag-btn");
 
-
 //cart
 let cart = [];
 //buttons
@@ -87,7 +86,7 @@ class UI {
         //display cart item
         this.addCartItem(cartItem);
         //show the cart
-        this.showCart()
+        this.showCart();
       });
     });
   }
@@ -118,9 +117,12 @@ class UI {
     </div>
     `;
     cartContent.appendChild(div);
-    
   }
-  showCart() {}
+  showCart() {
+    cartOverlay.classList.add("transparentBcg");
+    cartDOM.classList.add("showCart");
+  }
+  
 }
 //local storage
 class Storage {

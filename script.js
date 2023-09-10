@@ -143,6 +143,14 @@ class UI {
       this.clearCart();
     });
     //cart functionality
+    cartContent.addEventListener("click", (event) => {
+      if (event.target.classList.contains("remove-item")) {
+        let removeItem = event.target;
+        let id = removeItem.dataset.id;
+        cartContent.removeChild(removeItem.parentElement.parentElement); // parent item of parent item in order to finally reach remove-cart class. there are two divs above remove-items that needed to be reached through
+        this.removeItem(id);
+      }
+    });
   }
   clearCart() {
     let cartItems = cart.map((item) => item.id); //create array with all items we have in cart. Use map function to create an array
